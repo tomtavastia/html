@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <title>Pyöristämistehtäviä</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        body {
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        input {
+            margin-right: 10px;
+        }
+        button {
+            margin-right: 10px;
+        }
+        .task {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Pyöristämistehtäviä</h2>
+ 
+
+    <div class="task">
+        <p>1. Pyöristä luku \( 4{,}678 \) lähimpään kymmenesosaan.</p>
+        <input id="answer1" type="text"/>
+        <button onclick="checkAnswer(1)">Tarkista</button>
+        <div id="feedback1"></div>
+        <div id="solution1" style="display:none; margin-top:5px;">Ratkaisu: Kymmenesosa on 6, seuraava numero on 7 → pyöristetään ylöspäin → \( 4{,}7 \)</div>
+    </div>
+
+    <div class="task">
+        <p>2. Pyöristä luku \( 3{,}142 \) lähimpään sadasosaan.</p>
+        <input id="answer2" type="text"/>
+        <button onclick="checkAnswer(2)">Tarkista</button>
+        <div id="feedback2"></div>
+        <div id="solution2" style="display:none; margin-top:5px;">Ratkaisu: Sadasosa on 4, seuraava numero on 2 → ei muutosta → \( 3{,}14 \)</div>
+    </div>
+
+    <div class="task">
+        <p>3. Pyöristä luku \( 9{,}996 \) lähimpään kokonaislukuun.</p>
+        <input id="answer3" type="text"/>
+        <button onclick="checkAnswer(3)">Tarkista</button>
+        <div id="feedback3"></div>
+        <div id="solution3" style="display:none; margin-top:5px;">Ratkaisu: Desimaaliosa yli 0,5 → pyöristetään ylöspäin → \( 10 \)</div>
+    </div>
+
+    <div class="task">
+        <p>4. Pyöristä luku \( 15{,}349 \) lähimpään sadasosaan.</p>
+        <input id="answer4" type="text"/>
+        <button onclick="checkAnswer(4)">Tarkista</button>
+        <div id="feedback4"></div>
+        <div id="solution4" style="display:none; margin-top:5px;">Ratkaisu: Sadasosa on 4, seuraava numero on 9 → pyöristetään ylöspäin → \( 15{,}35 \)</div>
+    </div>
+
+    <div class="task">
+        <p>5. Pyöristä luku \( 0{,}845 \) lähimpään kymmenesosaan.</p>
+        <input id="answer5" type="text"/>
+        <button onclick="checkAnswer(5)">Tarkista</button>
+        <div id="feedback5"></div>
+        <div id="solution5" style="display:none; margin-top:5px;">Ratkaisu: Kymmenesosa on 8, seuraava numero on 4 → ei muutosta → \( 0{,}8 \)</div>
+    </div>
+
+    <div class="task">
+        <p>6. Pyöristä luku \( 1234{,}5678 \) lähimpään kokonaislukuun.</p>
+        <input id="answer6" type="text"/>
+        <button onclick="checkAnswer(6)">Tarkista</button>
+        <div id="feedback6"></div>
+        <div id="solution6" style="display:none; margin-top:5px;">Ratkaisu: Desimaaliosa yli 0,5 → pyöristetään ylöspäin → \( 1235 \)</div>
+    </div>
+
+    <div class="task">
+        <p>7. Pyöristä luku \( 7{,}499 \) lähimpään kokonaislukuun.</p>
+        <input id="answer7" type="text"/>
+        <button onclick="checkAnswer(7)">Tarkista</button>
+        <div id="feedback7"></div>
+        <div id="solution7" style="display:none; margin-top:5px;">Ratkaisu: Desimaaliosa alle 0,5 → pyöristetään alaspäin → \( 7 \)</div>
+    </div>
+
+    <div class="task">
+        <p>8. Pyöristä luku \( 0{,}999 \) lähimpään sadasosaan.</p>
+        <input id="answer8" type="text"/>
+        <button onclick="checkAnswer(8)">Tarkista</button>
+        <div id="feedback8"></div>
+        <div id="solution8" style="display:none; margin-top:5px;">Ratkaisu: Sadasosa on 9, seuraava numero on 9 → pyöristetään ylöspäin → \( 1{,}00 \)</div>
+    </div>
+
+    <div class="task">
+        <p>9. Pyöristä luku \( 56{,}781 \) lähimpään kymmenesosaan.</p>
+        <input id="answer9" type="text"/>
+        <button onclick="checkAnswer(9)">Tarkista</button>
+        <div id="feedback9"></div>
+        <div id="solution9" style="display:none; margin-top:5px;">Ratkaisu: Kymmenesosa on 7, seuraava numero on 8 → pyöristetään ylöspäin → \( 56{,}8 \)</div>
+    </div>
+
+    <div class="task">
+        <p>10. Pyöristä luku \( 2{,}505 \) lähimpään sadasosaan.</p>
+        <input id="answer10" type="text"/>
+        <button onclick="checkAnswer(10)">Tarkista</button>
+        <div id="feedback10"></div>
+        <div id="solution10" style="display:none; margin-top:5px;">Ratkaisu: Sadasosa on 0, seuraava numero on 5 → pyöristetään ylöspäin → \( 2{,}51 \)</div>
+    </div>
+
+    <script>
+        function checkAnswer(index) {
+            const correctAnswers = {
+                1: "4,7",
+                2: "3,14",
+                3: "10",
+                4: "15,35",
+                5: "0,8",
+                6: "1235",
+                7: "7",
+                8: "1,00",
+                9: "56,8",
+                10: "2,51"
+            };
+            const userAnswer = document.getElementById("answer" + index).value.trim();
+            const feedback = document.getElementById("feedback" + index);
+            const solution = document.getElementById("solution" + index);
+            if (userAnswer === correctAnswers[index]) {
+                feedback.innerHTML = "Oikein!";
+                feedback.style.color = "green";
+            } else {
+                feedback.innerHTML = "Väärin. Oikea vastaus on " + correctAnswers[index];
+                feedback.style.color = "red";
+            }
+            solution.style.display = "block";
+        }
+    </script>
+</body>
+</html>
